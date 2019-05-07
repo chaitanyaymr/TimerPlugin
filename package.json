@@ -1,0 +1,38 @@
+{
+  "name": "chaitanyaymr-timer-plugin",
+  "version": "0.0.1",
+  "description": "Timer Plugin that allows to choose time in between 12.00AM and Current Time",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "ngc": "ngc",
+    "build": "rmdir /s /q dist && npm run ngc",
+    "publishPackage": "npm run build && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaitanyaymr/TimerPlugin.git"
+  },
+  "keywords": [],
+  "author": "chaitanyaymr",
+  "license": "MIT",
+  "homepage": "https://ionicacademy.com",
+  "devDependencies": {
+    "@angular/common": "5.0.0",
+    "@angular/compiler": "5.0.0",
+    "@angular/compiler-cli": "5.0.0",
+    "@angular/core": "5.0.0",
+    "@angular/forms": "5.0.0",
+    "@angular/platform-browser": "5.0.0",
+    "@angular/platform-browser-dynamic": "5.0.0",
+    "@ionic/app-scripts": "^3.2.3",
+    "@types/node": "^9.4.6",
+    "ionic-angular": "3.9.2",
+    "rxjs": "5.5.2",
+    "typescript": "2.4.2",
+    "zone.js": "0.8.18"
+  }
+}
