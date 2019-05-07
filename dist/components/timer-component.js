@@ -64,6 +64,7 @@ var TimerComponent = (function () {
         }
     };
     TimerComponent.prototype.incHr = function () {
+        this.arrow_down_mins = 0;
         this.hrs = parseInt(this.hrs) + 1;
         if (this.hrs == 12) {
             this.apm = (this.apm == 'AM') ? 'PM' : 'AM';
@@ -94,6 +95,8 @@ var TimerComponent = (function () {
         if (this.apm == this.current_apm) {
             if (this.hrs == this.current_hrs) {
                 this.arrow_down_hrs = 1;
+                this.mins = this.setMinutes(this.current_mins);
+                this.arrow_down_mins = 1;
                 return true;
             }
         }
@@ -101,19 +104,20 @@ var TimerComponent = (function () {
     };
     TimerComponent.prototype.decHr = function () {
         this.arrow_up_hrs = 0;
-        this.arrow_up_mins = 1;
+        //this.arrow_up_mins=1;
         this.hrs = parseInt(this.hrs);
         this.hrs = this.hrs - 1;
         if (this.hrs == 0)
             this.hrs = 12;
         if (this.hrs == 11) {
             this.apm = (this.apm == 'AM') ? 'PM' : 'AM';
+            this.arrow_up_mins = 0;
         }
         this.check_currentHr();
         this.hrs = this.setHours(this.hrs);
     };
     TimerComponent.prototype.checkminsandHeaders = function () {
-        if (this.apm = this.current_apm) {
+        if (this.apm == this.current_apm) {
             if (this.hrs == this.current_hrs) {
                 this.arrow_down_hrs = 1;
                 if (this.mins == this.current_mins) {
@@ -130,16 +134,20 @@ var TimerComponent = (function () {
         if (!this.checkminsandHeaders()) {
             if (this.mins == -1) {
                 this.hrs = this.setHours(parseInt(this.hrs) - 1);
+                if (this.hrs == this.current_hrs) {
+                    this.arrow_down_hrs = 1;
+                }
                 if (this.hrs == 11) {
                     this.apm = (this.apm == 'AM') ? 'PM' : 'AM';
                     this.arrow_down_mins = 0;
                     this.arrow_down_hrs = 0;
+                    this.arrow_up_hrs = 0;
+                    this.arrow_up_mins = 0;
                 }
                 this.mins = 59;
             }
-            else
-                this.mins = this.setMinutes(this.mins);
         }
+        this.mins = this.setMinutes(this.mins);
     };
     TimerComponent.decorators = [
         { type: Component, args: [{
