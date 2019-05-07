@@ -1,6 +1,6 @@
 {
   "name": "chaitanyaymr-timer-plugin",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Timer Plugin that allows to choose time in between 12.00AM and Current Time",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",

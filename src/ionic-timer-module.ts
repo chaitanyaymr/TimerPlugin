@@ -1,6 +1,8 @@
+import { TimerProvider } from './providers/timer-provider';
 import { TimerComponent } from "./components/timer-component";
-import {NgModule} from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import {IonicModule} from 'ionic-angular';
+
 @NgModule({
     imports:[
         IonicModule
@@ -13,6 +15,11 @@ import {IonicModule} from 'ionic-angular';
     ]
 })
 
-export class TimerModule{
-
+export class IonicTimerModule{
+        static forRoot():ModuleWithProviders{
+            return{
+                ngModule:IonicTimerModule,
+                providers:[TimerProvider]
+            }
+        }
 }
